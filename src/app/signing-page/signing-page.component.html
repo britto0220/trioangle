@@ -1,0 +1,54 @@
+<div class="cal-signing-page">
+  <div><img style="width: 100%;" src="assets/bg10.jpg" alt="image"></div>
+
+  <mat-card class="cal-signing-page__content">
+    <mat-card-content>
+      <div>
+        <h3 class="cal-signing-page__heading">LOGIN TO YOUR ACCOUNT</h3>
+      </div>
+      <div class="cal-signing-page__div-login">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+          <div class="cal-signing-page__input-div">
+            <input class="cal-signing-page__input" value="test@gmail.com" autocomplete="off" type="text"
+              placeholder="Official email address" formControlName="email" />
+            <div class="errors" *ngIf=" form.get('email').invalid &&
+            (form.get('email').dirty || form.get('email').touched)">
+
+              <div *ngIf="form.get('email').hasError('required')">
+                The field is required </div>
+
+              <div *ngIf="form.get('email').errors.email">
+                Email format is not correct
+              </div>
+
+
+            </div>
+          </div>
+
+
+          <div class="cal-signing-page__input-div">
+            <input class="cal-signing-page__input" value="12345678" type="password" autocomplete="off"
+              placeholder="Password" formControlName="password" />
+            <div class="errors" *ngIf=" form.get('password').invalid &&
+            (form.get('password').dirty || form.get('password').touched)">
+
+              <div *ngIf="form.get('password').hasError('required')">
+                The field is required </div>
+
+
+
+
+            </div>
+          </div>
+
+          <div class="cal-signing-page__button-div">
+            <button class="cal-signing-page__button " type="submit" mat-button [disabled]="form.invalid">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
